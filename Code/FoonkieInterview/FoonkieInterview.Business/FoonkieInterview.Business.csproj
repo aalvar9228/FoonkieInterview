@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoonkieInterview.Common\FoonkieInterview.Common.csproj" />
+    <ProjectReference Include="..\FoonkieInterview.Repository\FoonkieInterview.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\Managers\" />
+    <Folder Include="Managers\" />
+  </ItemGroup>
+
+</Project>
