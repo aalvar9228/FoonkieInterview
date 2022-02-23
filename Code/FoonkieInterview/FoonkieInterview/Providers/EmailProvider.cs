@@ -1,6 +1,7 @@
 ﻿using FoonkieInterview.Common.Contracts.Providers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
@@ -20,13 +21,9 @@ namespace FoonkieInterview.Providers
                 };
                 await Email.ComposeAsync(message);
             }
-            catch (FeatureNotSupportedException fbsEx)
-            {
-                // Email is not supported on this device
-            }
             catch (Exception ex)
             {
-                // Some other exception occurred
+                Debug.WriteLine(ex);
             }
         }
     }

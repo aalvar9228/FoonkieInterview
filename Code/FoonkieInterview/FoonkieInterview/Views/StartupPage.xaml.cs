@@ -11,7 +11,7 @@ namespace FoonkieInterview.Views
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new StartupViewModel();
+            BindingContext = _viewModel = new StartupViewModel(carouselView);
         }
 
         protected override void OnAppearing()

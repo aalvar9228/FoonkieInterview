@@ -20,11 +20,15 @@ namespace FoonkieInterview.ViewModels
         private readonly ILaboratoryRepository _laboratoryRepository;
         private readonly ICaseStudyRepository _caseStudyRepository;
 
+        private CarouselView _carouselView;
+
         private Laboratory _laboratory;
         private List<CaseStudy> _allCaseStudies;
+        private int _currentCaseIndex;
 
-        public ObservableCollection<CaseStudy> CaseStudies { get; private set; }
-        public ObservableCollection<Laboratory> Laboratories { get; private set; }
+        public ObservableCollection<CaseStudy> CaseStudies { get; }
+        public ObservableCollection<Laboratory> Laboratories { get; }
+
         public Laboratory SelectedLaboratory
         {
             get => _laboratory;
@@ -37,9 +41,12 @@ namespace FoonkieInterview.ViewModels
 
         public ICommand GetInTouchCommand { get; }
         public ICommand ShowUsersCommand { get; }
+        public ICommand PreviousCaseStudyCommand { get; }
+        public ICommand NextCaseStudyCommand { get; }
 
-        public StartupViewModel()
+        public StartupViewModel(CarouselView carouselView = null)
         {
+            _carouselView = carouselView;
             Laboratories = new ObservableCollection<Laboratory>();
             CaseStudies = new ObservableCollection<CaseStudy>();
 
@@ -50,7 +57,27 @@ namespace FoonkieInterview.ViewModels
             _allCaseStudies = new List<CaseStudy>();
 
             GetInTouchCommand = new Command(async () => await PerformGetInTouch());
+            PreviousCaseStudyCommand = new Command(() => PreviousCaseStudy());
+            NextCaseStudyCommand = new Command(() => NextCaseStudy());
             ShowUsersCommand = new Command(async () => await Shell.Current.GoToAsync($"{nameof(UsersPage)}"));
+        }
+
+        private void NextCaseStudy()
+        {
+            if (!CaseStudies.Any())
+                return;
+
+            _currentCaseIndex = _currentCaseIndex < CaseStudies.Count - 1 ? _currentCaseIndex + 1 : 0;
+            _carouselView.Position = _currentCaseIndex;
+        }
+
+        private void PreviousCaseStudy()
+        {
+            if (!CaseStudies.Any())
+                return;
+
+            _currentCaseIndex = _currentCaseIndex > 0 ? --_currentCaseIndex : CaseStudies.Count - 1;
+            _carouselView.Position = _currentCaseIndex;
         }
 
         public async void OnAppearing()
@@ -79,6 +106,7 @@ namespace FoonkieInterview.ViewModels
                     _allCaseStudies.Add(Mapper.Map<CaseStudy>(caseStudy));
 
                 SelectedLaboratory = Laboratories.FirstOrDefault();
+                _currentCaseIndex = 0;
             }
             catch (Exception ex)
             {
@@ -105,6 +133,8 @@ namespace FoonkieInterview.ViewModels
             if (SelectedLaboratory != null && (_allCaseStudies?.Any() ?? false))
                 foreach (var caseStudy in _allCaseStudies.Where(x => x.LaboratoryId == SelectedLaboratory.Id))
                     CaseStudies.Add(caseStudy);
+
+            _currentCaseIndex = 0;
         }
     }
 }
