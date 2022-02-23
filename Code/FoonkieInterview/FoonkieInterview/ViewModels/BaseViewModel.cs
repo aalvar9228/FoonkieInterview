@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using FoonkieInterview.Models;
-using FoonkieInterview.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +10,6 @@ namespace FoonkieInterview.ViewModels
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
         protected readonly IMapper Mapper;
-
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy

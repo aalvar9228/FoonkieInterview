@@ -17,6 +17,12 @@ namespace FoonkieInterview.Mappers
 
             CreateMap<RepositoryModels.Services.Api.Shared.User, Entities.UserEntity>()
                 .ReverseMap();
+
+            CreateMap<RepositoryModels.Repositories.Laboratory, Dtos.Laboratory>()
+                .ReverseMap();
+
+            CreateMap<RepositoryModels.Repositories.CaseStudy, Dtos.CaseStudy>()
+                .ReverseMap();
         }
     }
 }

@@ -1,28 +1,219 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoonkieInterview.Views.StartupPage"
-             xmlns:vm="clr-namespace:FoonkieInterview.ViewModels"
-             Shell.FlyoutBehavior="Disabled"
-             Shell.NavBarIsVisible="False"
-             Title="{Binding Title}">
-    <ContentPage.BindingContext>
-        <vm:StartupViewModel />
-    </ContentPage.BindingContext>
-
-    <ContentPage.Content>
-        <StackLayout
-                HorizontalOptions="FillAndExpand"
-                BackgroundColor="#b3ddd8">
-            <Label 
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="End"
-                Text="Hi ddasdasdd"></Label>
-
-            <Button
-                HorizontalOptions="Center"
-                Text="CLick me"
-                Command="{Binding ShowUsersCommand}"></Button>
-        </StackLayout>
-    </ContentPage.Content>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="toolkit"
+    x:Class="FoonkieInterview.Views.StartupPage"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Title="{Binding Title}">
+	<ContentPage.Content>
+		<RelativeLayout>
+			<ScrollView
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                HorizontalOptions="FillAndExpand">
+				<StackLayout
+                    Spacing="0">
+					<StackLayout
+                    BackgroundColor="#B3DDD8"
+                    Margin="0"
+                    Padding="40">
+						<Image 
+                        HorizontalOptions="CenterAndExpand"
+                        Margin="0,0,0,20"
+                        Source="logo.png"/>
+						<Label 
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Margin="20,0,20,20"
+                        FontSize="30"
+                        FontFamily="DM Serif Display"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        Text="Expert Samurais on Develop Secure apps with Sensitive data."/>
+						<Label 
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Margin="20,0,20,20"
+                        FontSize="Default"
+                        FontFamily="DM Serif Display"
+                        TextColor="Black"
+                        Text="We are samurais code monkeys that masters the most recent data security protocols, encrypted methodologies and Blockchain development."/>
+						<Button
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="54"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        FontFamily="DM Serif Display"
+                        TextColor="#29ABE1"
+                        Text="Get in Touch!"
+                        CornerRadius="27"
+                        Command="{Binding ShowUsersCommand}"></Button>
+						<Image   
+                        HorizontalOptions="CenterAndExpand"
+                        Margin="0"
+                        Source="monkey.png"/>
+					</StackLayout>
+					<StackLayout
+                    BackgroundColor="#AAAACC">
+						<Label 
+                        Padding="40,20,40,0"
+                        Text="Case studies"
+                        FontSize="20"
+                        FontFamily="DM Serif Display"
+                        TextColor="White"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <ImageButton
+                                Margin="10,0,0,0"
+                            Grid.Column="0"
+                                VerticalOptions="Center"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                                CornerRadius="25"
+                                BackgroundColor="white"
+                                Padding="15"
+                                Source="left_arrow_icon.png"></ImageButton>
+                            <ImageButton
+                                Margin="0,0,10,0"
+                            Grid.Column="2"
+                            VerticalOptions="Center"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                                CornerRadius="25"
+                                BackgroundColor="white"
+                                Padding="15"
+                                Source="right_arrow_icon.png"></ImageButton>
+                            <CarouselView
+                                HeightRequest="700"
+                                Margin="0,20"
+                                Grid.Column="1"
+                                ItemsSource="{Binding CaseStudies}">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <Frame 
+                                                BackgroundColor="#E6E3EF"
+                                        HasShadow="True"
+                                        CornerRadius="17"
+                                        Margin="20,5"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="FillAndExpand">
+                                                <Grid
+                                            ColumnSpacing="0"
+                                            RowSpacing="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="50*"/>
+                                                        <RowDefinition Height="50*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Frame 
+                                                        BackgroundColor="White"
+                                                        HasShadow="False"
+                                                Grid.Row="0"
+                                                Margin="-20,-20,-20,0"
+                                                CornerRadius="17"
+                                                IsClippedToBounds="True">
+                                                        <Image Source="{Binding Image}"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    VerticalOptions="FillAndExpand" />
+                                                    </Frame>
+                                                    <StackLayout
+                                                Grid.Row="1"
+                                                Padding="20">
+                                                        <Label
+                                                    FontSize="30"
+                                                    FontFamily="DM Serif Display"
+                                                    FontAttributes="Bold"
+                                                    TextColor="Black"
+                                                    Text="{Binding Title}"/>
+                                                        <BoxView
+                                                            HorizontalOptions="Start"
+                                                            Margin="0,10"
+                                                    WidthRequest="50"
+                                                    HeightRequest="1"
+                                                    BackgroundColor="LightGray"/>
+                                                        <Label 
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    FontSize="Default"
+                                                    FontFamily="DM Serif Display"
+                                                    TextColor="Black"
+                                                    Text="{Binding Description}"/>
+                                                        <Button
+                                                            Margin="0,20"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    HeightRequest="54"
+                                                    BackgroundColor="White"
+                                                    FontSize="Medium"
+                                                    FontAttributes="Bold"
+                                                    FontFamily="DM Serif Display"
+                                                    TextColor="#29ABE1"
+                                                    Text="View Project"
+                                                    CornerRadius="27"/>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                        </Grid>
+                    </StackLayout>
+					<StackLayout
+                        BackgroundColor="#29ABE1">
+						<Label 
+                        Text="Case studies"/>
+						<Label 
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Margin="20,0,20,20"
+                        FontSize="30"
+                        FontFamily="DM Serif Display"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        Text="Expert Samurais on Develop Secure apps with Sensitive data."/>
+						<Label 
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Margin="20,0,20,20"
+                        FontSize="Default"
+                        FontFamily="DM Serif Display"
+                        TextColor="Black"
+                        Text="We are samurais code monkeys that masters the most recent data security protocols, encrypted methodologies and Blockchain development."/>
+						<Button
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="54"
+                        BackgroundColor="White"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        FontFamily="DM Serif Display"
+                        TextColor="#29ABE1"
+                        Text="Get in Touch!"
+                        CornerRadius="27"
+                        Command="{Binding ShowUsersCommand}"></Button>
+						<Image 
+                        HorizontalOptions="CenterAndExpand"
+                        Margin="0,0,0,20"
+                        Source="monkey.png"/>
+					</StackLayout>
+				</StackLayout>
+			</ScrollView>
+			<ImageButton
+                Source="menu_icon.png"
+                Padding="20"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-100}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-100}"
+                BackgroundColor="White"
+                CornerRadius="40"
+                WidthRequest="80"
+                HeightRequest="80"/>
+		</RelativeLayout>
+	</ContentPage.Content>
 </ContentPage>

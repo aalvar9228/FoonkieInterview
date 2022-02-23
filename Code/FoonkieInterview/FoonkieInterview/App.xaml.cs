@@ -6,7 +6,6 @@ using FoonkieInterview.Mappers;
 using FoonkieInterview.Providers;
 using FoonkieInterview.Repository.Contracts.Repositories;
 using FoonkieInterview.Repository.Repositories;
-using FoonkieInterview.Services;
 using Xamarin.Forms;
 
 namespace FoonkieInterview
@@ -49,6 +48,8 @@ namespace FoonkieInterview
             #region Repositories
 
             DependencyService.Register<IUserRepository, UserRepository>();
+            DependencyService.Register<ILaboratoryRepository, LaboratoryRepository>();
+            DependencyService.Register<ICaseStudyRepository, CaseStudyRepository>();
 
             #endregion
 
