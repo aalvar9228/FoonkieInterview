@@ -1,4 +1,5 @@
-﻿using FoonkieInterview.Models;
+﻿using AutoMapper;
+using FoonkieInterview.Models;
 using FoonkieInterview.Services;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,20 @@ using Xamarin.Forms;
 
 namespace FoonkieInterview.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
+        protected readonly IMapper Mapper;
+
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy
         {
             get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            set { 
+                SetProperty(ref isBusy, value);
+                IsBusyChanged();
+            }
         }
 
         string title = string.Empty;
@@ -24,6 +30,11 @@ namespace FoonkieInterview.ViewModels
         {
             get { return title; }
             set { SetProperty(ref title, value); }
+        }
+
+        protected BaseViewModel()
+        {
+            Mapper = DependencyService.Get<IMapper>();
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -38,6 +49,8 @@ namespace FoonkieInterview.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
+
+        protected virtual void IsBusyChanged() { }
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

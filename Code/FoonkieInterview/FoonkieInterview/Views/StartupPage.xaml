@@ -14,6 +14,15 @@
         <StackLayout
                 HorizontalOptions="FillAndExpand"
                 BackgroundColor="#b3ddd8">
+            <Label 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End"
+                Text="Hi ddasdasdd"></Label>
+
+            <Button
+                HorizontalOptions="Center"
+                Text="CLick me"
+                Command="{Binding ShowUsersCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

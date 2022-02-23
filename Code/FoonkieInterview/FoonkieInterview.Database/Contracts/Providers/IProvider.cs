@@ -7,6 +7,7 @@ namespace FoonkieInterview.Database.Contracts.Providers
     public interface IProvider<TEntity> where TEntity : EntityBase
     {
         Task<List<TEntity>> GetItemsAsync();
-        Task<int> SaveItemAsync(TEntity item);
+        Task SaveItemAsync(TEntity item);
+        Task SaveItemCollectionAsync(List<TEntity> items);
     }
 }

@@ -73,8 +73,12 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <FlyoutItem Title="Startup" FlyoutItemIsVisible="False">
-        <ShellContent Route="StartupPage" ContentTemplate="{DataTemplate local:StartupPage}" />
+    <ShellItem Route="StartupPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:StartupPage}"/>
+    </ShellItem>
+
+    <FlyoutItem Title="UsersPage">
+        <ShellContent Route="UsersPage" ContentTemplate="{DataTemplate local:UsersPage}" />
     </FlyoutItem>
 
     <!-- 

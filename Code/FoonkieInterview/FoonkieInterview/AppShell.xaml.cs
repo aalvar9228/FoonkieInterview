@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoonkieInterview.Views;
+using System;
 using Xamarin.Forms;
 
 namespace FoonkieInterview
@@ -8,6 +9,8 @@ namespace FoonkieInterview
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute(nameof(UsersPage), typeof(UsersPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

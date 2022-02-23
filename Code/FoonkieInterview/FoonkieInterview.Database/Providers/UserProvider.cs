@@ -1,8 +1,7 @@
 ﻿using FoonkieInterview.Database.Contracts.Providers;
 using FoonkieInterview.Database.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FoonkieInterview.Database.Providers
@@ -15,17 +14,23 @@ namespace FoonkieInterview.Database.Providers
             return await databaseInstance.Database.Table<UserEntity>().ToListAsync();
         }
 
-        public async Task<int> SaveItemAsync(UserEntity item)
+        public async Task SaveItemAsync(UserEntity item)
         {
             FoonkieInterviewDatabase databaseInstance = await FoonkieInterviewDatabase.Instance;
             if (item.Id != 0)
             {
-                return await databaseInstance.Database.UpdateAsync(item);
+                await databaseInstance.Database.UpdateAsync(item);
             }
             else
             {
-                return await databaseInstance.Database.InsertAsync(item);
+                await databaseInstance.Database.InsertAsync(item);
             }
+        }
+
+        public async Task SaveItemCollectionAsync(List<UserEntity> items)
+        {
+            FoonkieInterviewDatabase databaseInstance = await FoonkieInterviewDatabase.Instance;
+            await databaseInstance.Database.InsertAllAsync(items);
         }
     }
 }

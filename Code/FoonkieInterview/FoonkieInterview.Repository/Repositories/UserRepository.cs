@@ -16,7 +16,7 @@ namespace FoonkieInterview.Repository.Repositories
 
             try
             {
-                var response = await ApiService.GetUserListAsync(page);
+                var response = await ApiService.GetUserListAsync2(page);
                 result.Data = response;
                 result.StatusCode = HttpStatusCode.OK;
             }

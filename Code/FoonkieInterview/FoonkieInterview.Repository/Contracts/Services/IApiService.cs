@@ -8,5 +8,8 @@ namespace FoonkieInterview.Repository.Contracts.Services
     {
         [Get("/users?page={page}")]
         Task<UserListResponse> GetUserListAsync(int page);
+
+        [Get("/users?page={page}")]
+        Task<UserListResponse> GetUserListAsync2(int page);
     }
 }

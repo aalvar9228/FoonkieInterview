@@ -1,4 +1,5 @@
 ﻿using FoonkieInterview.Common.Contracts.Providers;
+using FoonkieInterview.Views;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -10,6 +11,7 @@ namespace FoonkieInterview.ViewModels
         private readonly IEmailProvider _emailProvider;
 
         public ICommand GetInTouchCommand { get; }
+        public ICommand ShowUsersCommand { get; }
 
         public StartupViewModel()
         {
@@ -18,6 +20,7 @@ namespace FoonkieInterview.ViewModels
             _emailProvider = DependencyService.Get<IEmailProvider>();
 
             GetInTouchCommand = new Command(async () => await PerformGetInTouch());
+            ShowUsersCommand = new Command(async () => await Shell.Current.GoToAsync($"{nameof(UsersPage)}"));
         }
 
         private async Task PerformGetInTouch()

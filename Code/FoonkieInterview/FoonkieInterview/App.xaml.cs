@@ -1,6 +1,8 @@
-﻿using FoonkieInterview.Common.Contracts.Providers;
+﻿using AutoMapper;
+using FoonkieInterview.Common.Contracts.Providers;
 using FoonkieInterview.Database.Contracts.Providers;
 using FoonkieInterview.Database.Providers;
+using FoonkieInterview.Mappers;
 using FoonkieInterview.Providers;
 using FoonkieInterview.Repository.Contracts.Repositories;
 using FoonkieInterview.Repository.Repositories;
@@ -33,7 +35,16 @@ namespace FoonkieInterview
 
         private void SetDependencies()
         {
-            DependencyService.Register<MockDataStore>();
+            #region Mappers
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new AppProfile());
+            });
+
+            DependencyService.RegisterSingleton(config.CreateMapper());
+
+            #endregion
 
             #region Repositories
 

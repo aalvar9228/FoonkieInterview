@@ -1,12 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoonkieInterview.Views.UsersPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="FoonkieInterview.Views.UsersPage"
+             Title="{Binding Title}"
+             xmlns:vm="clr-namespace:FoonkieInterview.ViewModels"  
+             xmlns:model="clr-namespace:FoonkieInterview.Models">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddUserCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView x:DataType="vm:UsersViewModel"
+            Command="{Binding RefreshUserListCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+            ItemsSource="{Binding Users}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" 
+                        x:DataType="model:User"
+                        HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               VerticalOptions="Start">
+                            <Image.Source>
+                                <UriImageSource
+                                    Uri="{Binding Avatar}"
+                                    CacheValidity="14"
+                                    CachingEnabled="True"/>
+                            </Image.Source>
+                        </Image>
+                        <StackLayout BackgroundColor="Gray" Grid.Column="1"
+                            HorizontalOptions="Fill"
+                            Padding="10"
+                            x:DataType="model:User">
+                            <Label Text="{Binding FullName}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding Email}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:UsersViewModel}}, Path=UserTapped}"		
+                                CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <StackLayout BackgroundColor="LightGray"
+                             IsVisible="{Binding ShowLoadMoreButton}">
+                    <Button Text="Cargar mas datos"
+                            Command="{Binding LoadMoreCommand}"/>
+                </StackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </RefreshView>
 </ContentPage>
