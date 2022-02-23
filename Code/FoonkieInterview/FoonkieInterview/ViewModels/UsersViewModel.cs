@@ -2,6 +2,7 @@
 using FoonkieInterview.Database.Entities;
 using FoonkieInterview.Models;
 using FoonkieInterview.Repository.Contracts.Repositories;
+using FoonkieInterview.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -169,8 +170,7 @@ namespace FoonkieInterview.ViewModels
             if (item == null)
                 return;
 
-            // This will push the ItemDetailPage onto the navigation stack
-            //await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(UserDetailPage)}?{nameof(UserDetailViewModel.ItemId)}={item.Id}");
         }
     }
 }

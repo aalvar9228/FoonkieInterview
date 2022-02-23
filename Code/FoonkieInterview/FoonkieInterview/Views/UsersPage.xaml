@@ -4,9 +4,10 @@
              x:Class="FoonkieInterview.Views.UsersPage"
              Title="{Binding Title}"
              xmlns:vm="clr-namespace:FoonkieInterview.ViewModels"  
-             xmlns:model="clr-namespace:FoonkieInterview.Models">
+             xmlns:model="clr-namespace:FoonkieInterview.Models"
+             xmlns:reusableViews="clr-namespace:FoonkieInterview.Views.Reusable">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddUserCommand}" />
+        <ToolbarItem Text="Guardar" Command="{Binding AddUserCommand}" />
     </ContentPage.ToolbarItems>
 
     <RefreshView x:DataType="vm:UsersViewModel"
@@ -17,45 +18,8 @@
             SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" 
-                        x:DataType="model:User"
-                        HorizontalOptions="FillAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100*"/>
-                        </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0"
-                               HeightRequest="100"
-                               WidthRequest="100"
-                               VerticalOptions="Start">
-                            <Image.Source>
-                                <UriImageSource
-                                    Uri="{Binding Avatar}"
-                                    CacheValidity="14"
-                                    CachingEnabled="True"/>
-                            </Image.Source>
-                        </Image>
-                        <StackLayout BackgroundColor="Gray" Grid.Column="1"
-                            HorizontalOptions="Fill"
-                            Padding="10"
-                            x:DataType="model:User">
-                            <Label Text="{Binding FullName}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Email}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:UsersViewModel}}, Path=UserTapped}"		
-                                CommandParameter="{Binding .}">
-                                </TapGestureRecognizer>
-                            </StackLayout.GestureRecognizers>
-                        </StackLayout>
-                    </Grid>
+                    <reusableViews:UserInfoView Padding="10"
+                                                x:DataType="model:User"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             <CollectionView.Footer>

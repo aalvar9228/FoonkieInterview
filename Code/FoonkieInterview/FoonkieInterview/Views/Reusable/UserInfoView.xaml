@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:FoonkieInterview.Models"
+             x:DataType="models:User"
+             xmlns:vm="clr-namespace:FoonkieInterview.ViewModels"
+             x:Class="FoonkieInterview.Views.Reusable.UserInfoView"
+             Padding="10">
+  <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               VerticalOptions="Start">
+                <Image.Source>
+                    <UriImageSource
+                                    Uri="{Binding Avatar}"
+                                    CacheValidity="14"
+                                    CachingEnabled="True"/>
+                </Image.Source>
+            </Image>
+            <StackLayout Grid.Column="1"
+                        HorizontalOptions="Fill"
+                        Padding="10">
+                <Label Text="{Binding FullName}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                <Label Text="{Binding Email}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:UsersViewModel}}, Path=UserTapped}"		
+                                CommandParameter="{Binding .}">
+                    </TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

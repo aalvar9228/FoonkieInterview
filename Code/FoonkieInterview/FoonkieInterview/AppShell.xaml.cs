@@ -11,6 +11,7 @@ namespace FoonkieInterview
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(UsersPage), typeof(UsersPage));
+            Routing.RegisterRoute(nameof(UserDetailPage), typeof(UserDetailPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

@@ -8,6 +8,12 @@ namespace FoonkieInterview.Database.Providers
 {
     public class UserProvider : IUserProvider
     {
+        public async Task<UserEntity> GetItemAsync(int id)
+        {
+            FoonkieInterviewDatabase databaseInstance = await FoonkieInterviewDatabase.Instance;
+            return await databaseInstance.Database.Table<UserEntity>().FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<List<UserEntity>> GetItemsAsync()
         {
             FoonkieInterviewDatabase databaseInstance = await FoonkieInterviewDatabase.Instance;

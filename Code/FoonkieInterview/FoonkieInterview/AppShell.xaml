@@ -81,6 +81,10 @@
         <ShellContent Route="UsersPage" ContentTemplate="{DataTemplate local:UsersPage}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="UserDetailPage">
+        <ShellContent Route="UserDetailPage" ContentTemplate="{DataTemplate local:UserDetailPage}" />
+    </FlyoutItem>
+
     <!-- 
         When the Flyout is visible this defines the content to display in the flyout.
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
