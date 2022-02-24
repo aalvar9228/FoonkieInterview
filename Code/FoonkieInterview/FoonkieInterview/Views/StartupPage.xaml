@@ -25,32 +25,21 @@
                         Margin="0,0,0,20"
                         Source="logo"/>
 						<Label 
+                            Style="{x:StaticResource TitleLabelStyle}"
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         Margin="20,0,20,20"
-                        FontSize="30"
-                        FontFamily="DM Serif Display"
-                        FontAttributes="Bold"
-                        TextColor="Black"
                         Text="Expert Samurais on Develop Secure apps with Sensitive data."/>
-						<Label 
+                                <Label 
+                                    Style="{x:StaticResource DescriptionLabelStyle}"
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         Margin="20,0,20,20"
-                        FontSize="Default"
-                        FontFamily="DM Serif Display"
-                        TextColor="Black"
                         Text="We are samurais code monkeys that masters the most recent data security protocols, encrypted methodologies and Blockchain development."/>
 						<Button
+                            Style="{x:StaticResource PrimaryButtonStyle}"
                         HorizontalOptions="CenterAndExpand"
-                        HeightRequest="54"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                        FontAttributes="Bold"
-                        FontFamily="DM Serif Display"
-                        TextColor="#29ABE1"
                         Text="Get in Touch!"
-                        CornerRadius="27"
                         Command="{Binding GetInTouchCommand}"></Button>
 						<Image   
                         HorizontalOptions="CenterAndExpand"
@@ -61,12 +50,10 @@
 					</StackLayout>
                     <StackLayout
                     BackgroundColor="#AAAACC">
-                        <Label 
+                        <Label Style="{x:StaticResource TitleLabelStyle}"
                         Padding="40,20,40,0"
                         Text="Case studies"
-                        FontSize="20"
-                        FontFamily="DM Serif Display"
-                        TextColor="White"/>
+                               TextColor="White"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="60"/>
@@ -77,30 +64,24 @@
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
                             <ImageButton
+                                Style="{StaticResource CarouselNavigationButtonStyle}"
                                 Margin="10,0,0,0"
                             Grid.Column="0"
                                 VerticalOptions="Center"
-                            HeightRequest="50"
-                            WidthRequest="50"
-                                CornerRadius="25"
-                                BackgroundColor="white"
                                 Padding="15"
                                 Source="left_arrow_icon"
                                 Command="{Binding PreviousCaseStudyCommand}"></ImageButton>
                             <ImageButton
+                                Style="{StaticResource CarouselNavigationButtonStyle}"
                                 Margin="0,0,10,0"
                             Grid.Column="2"
                             VerticalOptions="Center"
-                            HeightRequest="50"
-                            WidthRequest="50"
-                                CornerRadius="25"
-                                BackgroundColor="white"
                                 Padding="15"
                                 Source="right_arrow_icon"
                                 Command="{Binding NextCaseStudyCommand}"></ImageButton>
                             <CarouselView
                                 x:Name="carouselView"
-                                HeightRequest="700"
+                                HeightRequest="800"
                                 Margin="0,20,0,80"
                                 Grid.Column="1"
                                 ItemsSource="{Binding CaseStudies}">
@@ -118,8 +99,8 @@
                                             ColumnSpacing="0"
                                             RowSpacing="0">
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="50*"/>
-                                                        <RowDefinition Height="50*"/>
+                                                        <RowDefinition Height="1*"/>
+                                                        <RowDefinition Height="1*"/>
                                                     </Grid.RowDefinitions>
                                                     <Frame 
                                                         BackgroundColor="White"
@@ -136,34 +117,22 @@
                                                 Grid.Row="1"
                                                 Padding="20">
                                                         <Label
-                                                    FontSize="30"
-                                                    FontFamily="DM Serif Display"
-                                                    FontAttributes="Bold"
-                                                    TextColor="Black"
+                                                            Style="{StaticResource TitleLabelStyle}"
                                                     Text="{Binding Title}"/>
                                                         <BoxView
                                                             HorizontalOptions="Start"
                                                             Margin="0,10"
                                                     WidthRequest="50"
                                                     HeightRequest="1"
-                                                    BackgroundColor="LightGray"/>
-                                                        <Label 
+                                                    BackgroundColor="Gray"/>
+                                                        <Label Style="{StaticResource DescriptionLabelStyle}"
                                                     HorizontalOptions="CenterAndExpand"
-                                                    FontSize="Default"
-                                                    FontFamily="DM Serif Display"
-                                                    TextColor="Black"
                                                     Text="{Binding Description}"/>
                                                         <Button
+                                                            Style="{StaticResource PrimaryButtonStyle}"
                                                             Margin="0,20"
                                                     HorizontalOptions="StartAndExpand"
-                                                    HeightRequest="54"
-                                                    BackgroundColor="White"
-                                                    FontSize="Medium"
-                                                    FontAttributes="Bold"
-                                                    FontFamily="DM Serif Display"
-                                                    TextColor="#29ABE1"
-                                                    Text="View Project"
-                                                    CornerRadius="27"/>
+                                                    Text="View Project"/>
                                                     </StackLayout>
                                                 </Grid>
                                             </Frame>
@@ -185,28 +154,19 @@
                             <StackLayout
                                 Margin="20,80,20,20"
                                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                                Grid.Column="1">    
-                                <Label 
+                                Grid.Column="1">
+                                <Label Style="{StaticResource TitleLabelStyle}"
                                     HorizontalOptions="End"
                                     WidthRequest="200"
                                     HeightRequest="100"
                                 HorizontalTextAlignment="End"
                                 Margin="20,0,20,20"
-                                FontSize="30"
-                                FontFamily="DM Serif Display"
-                                FontAttributes="Bold"
-                                TextColor="White"
+                                       TextColor="White"
                                 Text="Let's work together!"/>
                                 <Button
+                                    Style="{StaticResource PrimaryButtonStyle}"
                                     HorizontalOptions="End"
-                                    HeightRequest="54"
-                                BackgroundColor="White"
-                                FontSize="Medium"
-                                FontAttributes="Bold"
-                                FontFamily="DM Serif Display"
-                                TextColor="#29ABE1"
-                                Text="Get in Touch!"
-                                CornerRadius="27"/>
+                                Text="Get in Touch!"/>
                                 <BoxView
                                 HorizontalOptions="End"
                                 Margin="0,60,0,20"
@@ -223,48 +183,36 @@
                                 HorizontalOptions="FillAndExpand"
                                 Margin="20,0,20,20">
                                     <Label
+                                        Style="{StaticResource OfficeLocationTitleLabelStyle}"
                                     HorizontalTextAlignment="End"
-                                    FontAttributes="Bold"
-                                    FontFamily="DM Serif Display"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="Bogotá:"/>
                                     <Label
+                                        Style="{StaticResource OfficeLocationDescriptionLabelStyle}"
                                     HorizontalTextAlignment="End"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="BogCalle 106 # 54-15 of. 307/308"/>
                                 </StackLayout>
                                 <StackLayout
                                 HorizontalOptions="FillAndExpand"
                                 Margin="20,0,20,20">
                                     <Label
+                                        Style="{StaticResource OfficeLocationTitleLabelStyle}"
                                     HorizontalTextAlignment="End"
-                                    FontAttributes="Bold"
-                                    FontFamily="DM Serif Display"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="Harpenden, UK:"/>
                                     <Label
+                                        Style="{StaticResource OfficeLocationDescriptionLabelStyle}"
                                     HorizontalTextAlignment="End"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="Harpenden Hall, Southdown Rd"/>
                                 </StackLayout>
                                 <StackLayout
                                 HorizontalOptions="FillAndExpand"
                                 Margin="20,0,20,20">
                                     <Label
+                                        Style="{StaticResource OfficeLocationTitleLabelStyle}"
                                     HorizontalTextAlignment="End"
-                                    FontAttributes="Bold"
-                                    FontFamily="DM Serif Display"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="Miami, USA:"/>
                                     <Label
+                                        Style="{StaticResource OfficeLocationDescriptionLabelStyle}"
                                     HorizontalTextAlignment="End"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="990 Biscayne Blvd #501"/>
                                 </StackLayout>
                                 <BoxView
@@ -274,10 +222,9 @@
                                 HeightRequest="1"
                                 BackgroundColor="LightGray"/>
                                 <Label
+                                    Style="{StaticResource OfficeLocationDescriptionLabelStyle}"
                                     Margin="20,20,20,100"
                                     HorizontalTextAlignment="End"
-                                    FontSize="20"
-                                    TextColor="White"
                                     Text="Foonkie Monkey 2021"/>
                             </StackLayout>
                         </RelativeLayout>

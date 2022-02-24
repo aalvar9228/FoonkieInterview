@@ -6,6 +6,51 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Fonts\DMSerifDisplay\DMSerifDisplay-Italic.ttf" />
+    <None Remove="Assets\Fonts\DMSerifDisplay\DMSerifDisplay-Regular.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Black.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-BlackItalic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Bold.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-BoldItalic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-ExtraBold.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-ExtraBoldItalic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Italic-VariableFont_wght.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Italic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Light.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-LightItalic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Medium.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-MediumItalic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-Regular.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-SemiBold.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-SemiBoldItalic.ttf" />
+    <None Remove="Assets\Fonts\Rubik\Rubik-VariableFont_wght.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="Assets\Fonts\Rubik\Rubik-BlackItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Fonts\DMSerifDisplay\DMSerifDisplay-Italic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\DMSerifDisplay\DMSerifDisplay-Regular.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Black.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Bold.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-BoldItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-ExtraBold.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Italic-VariableFont_wght.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Italic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Light.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-LightItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Medium.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-MediumItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-Regular.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-SemiBold.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Rubik\Rubik-VariableFont_wght.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.0" />
