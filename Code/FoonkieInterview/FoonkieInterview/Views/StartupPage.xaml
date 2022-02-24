@@ -18,10 +18,12 @@
                     BackgroundColor="#B3DDD8"
                     Margin="0"
                     Padding="40">
-						<Image 
+                        <RelativeLayout>
+                            <StackLayout>
+                                <Image 
                         HorizontalOptions="CenterAndExpand"
                         Margin="0,0,0,20"
-                        Source="logo.png"/>
+                        Source="logo"/>
 						<Label 
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
@@ -49,15 +51,17 @@
                         TextColor="#29ABE1"
                         Text="Get in Touch!"
                         CornerRadius="27"
-                        Command="{Binding ShowUsersCommand}"></Button>
+                        Command="{Binding GetInTouchCommand}"></Button>
 						<Image   
                         HorizontalOptions="CenterAndExpand"
                         Margin="0"
-                        Source="monkey.png"/>
+                        Source="monkey"/>
+                            </StackLayout>
+                        </RelativeLayout>
 					</StackLayout>
-					<StackLayout
+                    <StackLayout
                     BackgroundColor="#AAAACC">
-						<Label 
+                        <Label 
                         Padding="40,20,40,0"
                         Text="Case studies"
                         FontSize="20"
@@ -81,7 +85,7 @@
                                 CornerRadius="25"
                                 BackgroundColor="white"
                                 Padding="15"
-                                Source="left_arrow_icon.png"
+                                Source="left_arrow_icon"
                                 Command="{Binding PreviousCaseStudyCommand}"></ImageButton>
                             <ImageButton
                                 Margin="0,0,10,0"
@@ -92,12 +96,12 @@
                                 CornerRadius="25"
                                 BackgroundColor="white"
                                 Padding="15"
-                                Source="right_arrow_icon.png"
+                                Source="right_arrow_icon"
                                 Command="{Binding NextCaseStudyCommand}"></ImageButton>
                             <CarouselView
                                 x:Name="carouselView"
                                 HeightRequest="700"
-                                Margin="0,20"
+                                Margin="0,20,0,80"
                                 Grid.Column="1"
                                 ItemsSource="{Binding CaseStudies}">
                                 <CarouselView.ItemTemplate>
@@ -124,7 +128,7 @@
                                                 Margin="-20,-20,-20,0"
                                                 CornerRadius="17"
                                                 IsClippedToBounds="True">
-                                                        <Image Source="{Binding Image}"
+                                                        <Image Source="pfizer"
                                                     HorizontalOptions="FillAndExpand"
                                                     VerticalOptions="FillAndExpand" />
                                                     </Frame>
@@ -170,54 +174,126 @@
                         </Grid>
                         <!-- TODO: Tab bars -->
                     </StackLayout>
-					<StackLayout
+                    <StackLayout
                         BackgroundColor="#29ABE1">
-						<Label 
-                        Text="Case studies"/>
-						<Label 
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        Margin="20,0,20,20"
-                        FontSize="30"
-                        FontFamily="DM Serif Display"
-                        FontAttributes="Bold"
-                        TextColor="Black"
-                        Text="Expert Samurais on Develop Secure apps with Sensitive data."/>
-						<Label 
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        Margin="20,0,20,20"
-                        FontSize="Default"
-                        FontFamily="DM Serif Display"
-                        TextColor="Black"
-                        Text="We are samurais code monkeys that masters the most recent data security protocols, encrypted methodologies and Blockchain development."/>
-						<Button
-                        HorizontalOptions="CenterAndExpand"
-                        HeightRequest="54"
-                        BackgroundColor="White"
-                        FontSize="Medium"
-                        FontAttributes="Bold"
-                        FontFamily="DM Serif Display"
-                        TextColor="#29ABE1"
-                        Text="Get in Touch!"
-                        CornerRadius="27"
-                        Command="{Binding ShowUsersCommand}"></Button>
-						<Image 
-                        HorizontalOptions="CenterAndExpand"
-                        Margin="0,0,0,20"
-                        Source="monkey.png"/>
-					</StackLayout>
-				</StackLayout>
+                        <RelativeLayout>
+                            <Image
+                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=-20}"
+                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=-40}"
+                                Scale="1.2"
+                                Source="monkey_calling"/>
+                            <StackLayout
+                                Margin="20,80,20,20"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                                Grid.Column="1">    
+                                <Label 
+                                    HorizontalOptions="End"
+                                    WidthRequest="200"
+                                    HeightRequest="100"
+                                HorizontalTextAlignment="End"
+                                Margin="20,0,20,20"
+                                FontSize="30"
+                                FontFamily="DM Serif Display"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                Text="Let's work together!"/>
+                                <Button
+                                    HorizontalOptions="End"
+                                    HeightRequest="54"
+                                BackgroundColor="White"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                FontFamily="DM Serif Display"
+                                TextColor="#29ABE1"
+                                Text="Get in Touch!"
+                                CornerRadius="27"/>
+                                <BoxView
+                                HorizontalOptions="End"
+                                Margin="0,60,0,20"
+                                WidthRequest="100"
+                                HeightRequest="1"
+                                BackgroundColor="LightGray"/>
+                                <Image
+                                Margin="0,20"
+                                HorizontalOptions="End"
+                                WidthRequest="200"
+                                HeightRequest="100"
+                                Source="logo"/>
+                                <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Margin="20,0,20,20">
+                                    <Label
+                                    HorizontalTextAlignment="End"
+                                    FontAttributes="Bold"
+                                    FontFamily="DM Serif Display"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="Bogotá:"/>
+                                    <Label
+                                    HorizontalTextAlignment="End"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="BogCalle 106 # 54-15 of. 307/308"/>
+                                </StackLayout>
+                                <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Margin="20,0,20,20">
+                                    <Label
+                                    HorizontalTextAlignment="End"
+                                    FontAttributes="Bold"
+                                    FontFamily="DM Serif Display"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="Harpenden, UK:"/>
+                                    <Label
+                                    HorizontalTextAlignment="End"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="Harpenden Hall, Southdown Rd"/>
+                                </StackLayout>
+                                <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Margin="20,0,20,20">
+                                    <Label
+                                    HorizontalTextAlignment="End"
+                                    FontAttributes="Bold"
+                                    FontFamily="DM Serif Display"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="Miami, USA:"/>
+                                    <Label
+                                    HorizontalTextAlignment="End"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="990 Biscayne Blvd #501"/>
+                                </StackLayout>
+                                <BoxView
+                                HorizontalOptions="End"
+                                Margin="0,20"
+                                WidthRequest="100"
+                                HeightRequest="1"
+                                BackgroundColor="LightGray"/>
+                                <Label
+                                    Margin="20,20,20,100"
+                                    HorizontalTextAlignment="End"
+                                    FontSize="20"
+                                    TextColor="White"
+                                    Text="Foonkie Monkey 2021"/>
+                            </StackLayout>
+                        </RelativeLayout>
+                    </StackLayout>
+                </StackLayout>
 			</ScrollView>
 			<ImageButton
-                Source="menu_icon.png"
+                Source="menu_icon"
                 Padding="20"
                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-100}"
                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-100}"
                 BackgroundColor="White"
                 CornerRadius="40"
                 WidthRequest="80"
-                HeightRequest="80"/>
+                HeightRequest="80"
+                Command="{Binding ShowUsersCommand}"/>
 		</RelativeLayout>
 	</ContentPage.Content>
 </ContentPage>
